@@ -12,6 +12,7 @@ export default function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') ?? 'light')
 
   useEffect(() => {
     fetch(DATA_URL)
@@ -20,16 +21,31 @@ export default function App() {
       .catch(() => { setError(true); setLoading(false) })
   }, [])
 
+  function toggleTheme() {
+    const next = theme === 'light' ? 'dark' : 'light'
+    setTheme(next)
+    localStorage.setItem('theme', next)
+  }
+
   const cities = data?.cities ?? []
+  const isDark = theme === 'dark'
 
   return (
-    <div className="app">
+    <div className="app" data-theme={theme}>
       <aside className="sidebar">
         <div className="sidebar-brand">
           <span className="brand-name">breathe</span>
           {data?.updated_at && (
             <span className="brand-updated">Updated {relativeTime(data.updated_at)}</span>
           )}
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDark ? '☀' : '☽'}
+          </button>
         </div>
         <CityList cities={cities} selected={selected} onSelect={setSelected} />
         <Legend />
@@ -41,7 +57,7 @@ export default function App() {
         ) : error ? (
           <div className="loading">Could not load air quality data.</div>
         ) : (
-          <Map cities={cities} selected={selected} onSelect={setSelected} />
+          <Map cities={cities} selected={selected} onSelect={setSelected} theme={theme} />
         )}
 
         {selected && (

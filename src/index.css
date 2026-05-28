@@ -3,6 +3,124 @@ html, body { height: 100%; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
 #root { height: 100%; }
 
+/* ── Theme tokens — light (default) ──────────────────────────────── */
+:root {
+  --sidebar-bg:           #ffffff;
+  --sidebar-border:       #f1f5f9;
+  --brand-text:           #0f172a;
+  --brand-updated:        #94a3b8;
+  --section-label:        #94a3b8;
+
+  --search-bg:            #f8fafc;
+  --search-border:        #e2e8f0;
+  --search-text:          #0f172a;
+  --search-placeholder:   #94a3b8;
+  --search-focus-bg:      #ffffff;
+  --search-focus-border:  #94a3b8;
+
+  --item-hover:           #f8fafc;
+  --item-active:          #eff6ff;
+  --city-name:            #0f172a;
+  --city-state:           #64748b;
+  --city-aqi:             #475569;
+
+  --legend-label:         #475569;
+  --legend-range:         #94a3b8;
+  --scrollbar-thumb:      #e2e8f0;
+
+  --panel-bg:             #ffffff;
+  --panel-border:         #f1f5f9;
+  --panel-city-name:      #0f172a;
+  --panel-state:          #64748b;
+  --close-bg:             #f1f5f9;
+  --close-hover:          #e2e8f0;
+  --close-color:          #475569;
+
+  --card-bg:              #f8fafc;
+  --pollutant-label:      #94a3b8;
+  --pollutant-value:      #0f172a;
+  --pollutant-unit:       #94a3b8;
+
+  --advisory-bg:          #f8fafc;
+  --advisory-text:        #374151;
+
+  --tab-border:           #e2e8f0;
+  --tab-bg:               #ffffff;
+  --tab-color:            #94a3b8;
+  --tab-active-bg:        #0f172a;
+  --tab-active-color:     #ffffff;
+  --tab-active-border:    #0f172a;
+
+  --station-name:         #334155;
+  --station-pm25:         #94a3b8;
+
+  --loading-bg:           #f8fafc;
+  --loading-text:         #64748b;
+
+  --toggle-bg:            #e2e8f0;
+  --toggle-color:         #475569;
+  --toggle-hover-bg:      #cbd5e1;
+}
+
+/* ── Theme tokens — dark ──────────────────────────────────────────── */
+.app[data-theme="dark"] {
+  --sidebar-bg:           #0f172a;
+  --sidebar-border:       rgba(255,255,255,0.07);
+  --brand-text:           #f1f5f9;
+  --brand-updated:        #475569;
+  --section-label:        #475569;
+
+  --search-bg:            rgba(255,255,255,0.05);
+  --search-border:        rgba(255,255,255,0.08);
+  --search-text:          #e2e8f0;
+  --search-placeholder:   #475569;
+  --search-focus-bg:      rgba(255,255,255,0.09);
+  --search-focus-border:  rgba(255,255,255,0.22);
+
+  --item-hover:           rgba(255,255,255,0.05);
+  --item-active:          rgba(255,255,255,0.1);
+  --city-name:            #e2e8f0;
+  --city-state:           #64748b;
+  --city-aqi:             #94a3b8;
+
+  --legend-label:         #94a3b8;
+  --legend-range:         #475569;
+  --scrollbar-thumb:      #1e293b;
+
+  --panel-bg:             #1e293b;
+  --panel-border:         rgba(255,255,255,0.07);
+  --panel-city-name:      #f1f5f9;
+  --panel-state:          #94a3b8;
+  --close-bg:             rgba(255,255,255,0.08);
+  --close-hover:          rgba(255,255,255,0.14);
+  --close-color:          #94a3b8;
+
+  --card-bg:              rgba(255,255,255,0.05);
+  --pollutant-label:      #64748b;
+  --pollutant-value:      #e2e8f0;
+  --pollutant-unit:       #64748b;
+
+  --advisory-bg:          rgba(255,255,255,0.05);
+  --advisory-text:        #cbd5e1;
+
+  --tab-border:           rgba(255,255,255,0.1);
+  --tab-bg:               transparent;
+  --tab-color:            #64748b;
+  --tab-active-bg:        #f1f5f9;
+  --tab-active-color:     #0f172a;
+  --tab-active-border:    #f1f5f9;
+
+  --station-name:         #cbd5e1;
+  --station-pm25:         #64748b;
+
+  --loading-bg:           #0f172a;
+  --loading-text:         #94a3b8;
+
+  --toggle-bg:            rgba(255,255,255,0.08);
+  --toggle-color:         #94a3b8;
+  --toggle-hover-bg:      rgba(255,255,255,0.14);
+}
+
 /* ── Layout ───────────────────────────────────────────────────────── */
 .app {
   display: flex;
@@ -16,31 +134,52 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  background: #0f172a;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
   overflow: hidden;
   z-index: 100;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .sidebar-brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8px;
-  padding: 20px 16px 14px;
+  padding: 16px 14px 14px;
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--sidebar-border);
 }
 
 .brand-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: -0.5px;
-  color: #f1f5f9;
+  letter-spacing: -0.4px;
+  color: var(--brand-text);
+  flex: 1;
 }
 
 .brand-updated {
-  font-size: 0.7rem;
-  color: #64748b;
+  font-size: 0.68rem;
+  color: var(--brand-updated);
 }
+
+.theme-toggle {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: var(--toggle-bg);
+  color: var(--toggle-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.theme-toggle:hover { background: var(--toggle-hover-bg); }
 
 /* ── Map area ─────────────────────────────────────────────────────── */
 .map-area {
@@ -62,11 +201,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #64748b;
-  background: #f8fafc;
+  color: var(--loading-text);
+  background: var(--loading-bg);
 }
 
-/* Leaflet markers */
+/* Leaflet */
 .leaflet-interactive { cursor: pointer !important; }
 .leaflet-pane svg { overflow: visible; }
 
@@ -79,40 +218,40 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 }
 
 .city-list-header {
-  padding: 14px 16px 10px;
+  padding: 12px 14px 8px;
   flex-shrink: 0;
 }
 
 .city-list-title {
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #475569;
+  color: var(--section-label);
 }
 
 .city-list-search {
-  padding: 0 10px 10px;
+  padding: 0 10px 8px;
   flex-shrink: 0;
 }
 
 .search-input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 11px;
   font-size: 0.8rem;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--search-border);
   border-radius: 8px;
   outline: none;
-  background: rgba(255,255,255,0.05);
-  color: #e2e8f0;
+  background: var(--search-bg);
+  color: var(--search-text);
   transition: border-color 0.15s, background 0.15s;
 }
 
-.search-input::placeholder { color: #475569; }
+.search-input::placeholder { color: var(--search-placeholder); }
 
 .search-input:focus {
-  border-color: rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.08);
+  border-color: var(--search-focus-border);
+  background: var(--search-focus-bg);
 }
 
 .city-list-items {
@@ -121,27 +260,27 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   list-style: none;
   padding: 0 6px 6px;
   scrollbar-width: thin;
-  scrollbar-color: #1e293b transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 .city-list-items::-webkit-scrollbar { width: 4px; }
-.city-list-items::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 2px; }
+.city-list-items::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 2px;
+}
 
 .city-list-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 7px 10px;
+  border-radius: 7px;
   cursor: pointer;
   transition: background 0.12s;
 }
 
-.city-list-item:hover { background: rgba(255,255,255,0.05); }
-
-.city-list-item.active {
-  background: rgba(255,255,255,0.1);
-}
+.city-list-item:hover { background: var(--item-hover); }
+.city-list-item.active { background: var(--item-active); }
 
 .city-dot {
   width: 9px;
@@ -156,7 +295,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   display: block;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--city-name);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -164,26 +303,26 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 
 .city-list-state {
   display: block;
-  font-size: 0.68rem;
-  color: #64748b;
+  font-size: 0.67rem;
+  color: var(--city-state);
   margin-top: 1px;
 }
 
 .city-list-aqi {
   font-size: 0.82rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--city-aqi);
   flex-shrink: 0;
 }
 
 /* ── Legend ───────────────────────────────────────────────────────── */
 .legend {
   flex-shrink: 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 12px 16px;
+  border-top: 1px solid var(--sidebar-border);
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .legend-row { display: flex; align-items: center; gap: 8px; }
@@ -195,8 +334,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   flex-shrink: 0;
 }
 
-.legend-label { font-size: 0.68rem; color: #94a3b8; flex: 1; }
-.legend-range { font-size: 0.65rem; color: #475569; }
+.legend-label { font-size: 0.67rem; color: var(--legend-label); flex: 1; }
+.legend-range { font-size: 0.63rem; color: var(--legend-range); }
 
 /* ── City panel ───────────────────────────────────────────────────── */
 .city-panel {
@@ -206,30 +345,31 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   bottom: 0;
   width: min(360px, 100%);
   z-index: 900;
-  background: #fff;
+  background: var(--panel-bg);
   box-shadow: -4px 0 32px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  transition: background 0.2s;
 }
 
 .panel-close {
   width: 28px;
   height: 28px;
   border: none;
-  background: #f1f5f9;
+  background: var(--close-bg);
   border-radius: 50%;
   cursor: pointer;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #475569;
+  color: var(--close-color);
   flex-shrink: 0;
   transition: background 0.12s;
 }
 
-.panel-close:hover { background: #e2e8f0; }
+.panel-close:hover { background: var(--close-hover); }
 
 .panel-header {
   display: flex;
@@ -243,12 +383,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .panel-city-name {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--panel-city-name);
   line-height: 1.2;
   letter-spacing: -0.3px;
 }
 
-.panel-state { font-size: 0.8rem; color: #64748b; margin-top: 2px; }
+.panel-state {
+  font-size: 0.8rem;
+  color: var(--panel-state);
+  margin-top: 2px;
+}
 
 /* ── AQI block ────────────────────────────────────────────────────── */
 .aqi-block {
@@ -274,21 +418,21 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   padding: 10px 12px;
   border-left: 3px solid #e5e7eb;
   border-radius: 0 6px 6px 0;
-  background: #f8fafc;
+  background: var(--advisory-bg);
   font-size: 0.78rem;
-  color: #374151;
+  color: var(--advisory-text);
   line-height: 1.5;
 }
 
 /* ── Panel sections ───────────────────────────────────────────────── */
-.panel-section { padding: 16px 20px; border-top: 1px solid #f1f5f9; }
+.panel-section { padding: 16px 20px; border-top: 1px solid var(--panel-border); }
 
 .section-title {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: var(--section-label);
   margin-bottom: 12px;
 }
 
@@ -300,7 +444,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 }
 
 .pollutant-card {
-  background: #f8fafc;
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 10px;
   display: flex;
@@ -311,7 +455,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .pollutant-label {
   font-size: 0.62rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--pollutant-label);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -319,11 +463,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .pollutant-value {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--pollutant-value);
   line-height: 1.2;
 }
 
-.pollutant-unit { font-size: 0.6rem; color: #94a3b8; }
+.pollutant-unit { font-size: 0.6rem; color: var(--pollutant-unit); }
 
 /* ── Trend tabs ───────────────────────────────────────────────────── */
 .trend-tabs {
@@ -337,25 +481,25 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   font-size: 0.68rem;
   font-weight: 600;
   padding: 3px 9px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--tab-border);
   border-radius: 999px;
-  background: #fff;
-  color: #94a3b8;
+  background: var(--tab-bg);
+  color: var(--tab-color);
   cursor: pointer;
   transition: all 0.12s;
 }
 
-.trend-tab:hover { border-color: #94a3b8; color: #475569; }
+.trend-tab:hover { border-color: var(--tab-active-border); color: var(--tab-active-bg); }
 
 .trend-tab.active {
-  background: #0f172a;
-  color: #fff;
-  border-color: #0f172a;
+  background: var(--tab-active-bg);
+  color: var(--tab-active-color);
+  border-color: var(--tab-active-border);
 }
 
 /* ── Sparkline ────────────────────────────────────────────────────── */
 .sparkline-wrap {
-  background: #f8fafc;
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 8px;
   overflow: hidden;
@@ -369,13 +513,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   align-items: center;
   justify-content: space-between;
   padding: 8px 10px;
-  background: #f8fafc;
+  background: var(--card-bg);
   border-radius: 6px;
   font-size: 0.8rem;
 }
 
 .station-name {
-  color: #334155;
+  color: var(--station-name);
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -383,4 +527,4 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   max-width: 65%;
 }
 
-.station-pm25 { color: #94a3b8; font-size: 0.75rem; flex-shrink: 0; }
+.station-pm25 { color: var(--station-pm25); font-size: 0.75rem; flex-shrink: 0; }
