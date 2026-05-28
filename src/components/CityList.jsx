@@ -12,9 +12,9 @@ export default function CityList({ cities, selected, onSelect }) {
     .sort((a, b) => b.aqi - a.aqi)
 
   return (
-    <aside className="city-list">
+    <div className="city-list">
       <div className="city-list-header">
-        <span className="city-list-title">Cities</span>
+        <span className="city-list-title">Cities ({filtered.length})</span>
       </div>
 
       <div className="city-list-search">
@@ -46,6 +46,6 @@ export default function CityList({ cities, selected, onSelect }) {
           </li>
         ))}
       </ul>
-    </aside>
+    </div>
   )
 }

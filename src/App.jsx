@@ -24,32 +24,30 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="header">
-        <span className="header-logo">breathe</span>
-        {data?.updated_at && (
-          <span className="header-updated">Updated {relativeTime(data.updated_at)}</span>
+      <aside className="sidebar">
+        <div className="sidebar-brand">
+          <span className="brand-name">breathe</span>
+          {data?.updated_at && (
+            <span className="brand-updated">Updated {relativeTime(data.updated_at)}</span>
+          )}
+        </div>
+        <CityList cities={cities} selected={selected} onSelect={setSelected} />
+        <Legend />
+      </aside>
+
+      <div className="map-area">
+        {loading ? (
+          <div className="loading">Loading&hellip;</div>
+        ) : error ? (
+          <div className="loading">Could not load air quality data.</div>
+        ) : (
+          <Map cities={cities} selected={selected} onSelect={setSelected} />
         )}
-      </header>
 
-      {loading ? (
-        <div className="loading">Loading&hellip;</div>
-      ) : error ? (
-        <div className="loading">Could not load air quality data. Check your connection and try again.</div>
-      ) : (
-        <Map cities={cities} selected={selected} onSelect={setSelected} />
-      )}
-
-      <Legend />
-
-      <CityList
-        cities={cities}
-        selected={selected}
-        onSelect={setSelected}
-      />
-
-      {selected && (
-        <CityPanel city={selected} onClose={() => setSelected(null)} />
-      )}
+        {selected && (
+          <CityPanel city={selected} onClose={() => setSelected(null)} />
+        )}
+      </div>
     </div>
   )
 }

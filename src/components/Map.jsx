@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from 'react-leaflet'
 import { aqiColor } from '../utils/aqi'
 
-const INDIA = [20.5937, 78.9629]
+// Tight bounding box around India (includes all states + Andaman/Nicobar)
+const INDIA_CENTER = [22.5, 82.5]
+const INDIA_BOUNDS = [[6.5, 68.0], [37.5, 97.5]]
 
 function FlyTo({ city }) {
   const map = useMap()
@@ -16,7 +18,15 @@ function FlyTo({ city }) {
 
 export default function Map({ cities, selected, onSelect }) {
   return (
-    <MapContainer center={INDIA} zoom={5} className="map-container">
+    <MapContainer
+      center={INDIA_CENTER}
+      zoom={5}
+      minZoom={4}
+      maxZoom={12}
+      maxBounds={INDIA_BOUNDS}
+      maxBoundsViscosity={0.85}
+      className="map-container"
+    >
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>'
@@ -34,7 +44,7 @@ export default function Map({ cities, selected, onSelect }) {
             radius={isSelected ? 14 : 9}
             fillColor={aqiColor(city.aqi)}
             fillOpacity={0.88}
-            color={isSelected ? '#1f2937' : 'rgba(0,0,0,0.25)'}
+            color={isSelected ? '#0f172a' : 'rgba(0,0,0,0.25)'}
             weight={isSelected ? 2.5 : 1}
             eventHandlers={{ click: () => onSelect(city) }}
           >
