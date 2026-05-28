@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import Sparkline from './Sparkline'
-import { aqiColor, aqiTextColor, POLLUTANT_LABELS } from '../utils/aqi'
+import { aqiColor, aqiTextColor, aqiAdvisory, POLLUTANT_LABELS } from '../utils/aqi'
 
 const POLLUTANT_ORDER = ['pm25', 'pm10', 'no2', 'o3', 'co', 'so2']
 
@@ -8,8 +9,11 @@ export default function CityPanel({ city, onClose }) {
   const hasData = aqi > 0
   const bgColor = aqiColor(aqi)
   const txtColor = aqiTextColor(aqi)
-  const trend = pollutants.pm25?.trend ?? []
+  const advisory = aqiAdvisory(aqi)
+
   const visiblePollutants = POLLUTANT_ORDER.filter(p => pollutants[p])
+  const trendablePollutants = POLLUTANT_ORDER.filter(p => (pollutants[p]?.trend?.length ?? 0) >= 2)
+  const [trendPollutant, setTrendPollutant] = useState(trendablePollutants[0] ?? 'pm25')
 
   return (
     <aside className="city-panel">
@@ -32,6 +36,12 @@ export default function CityPanel({ city, onClose }) {
         )}
       </div>
 
+      {advisory && (
+        <div className="advisory" style={{ borderLeftColor: bgColor }}>
+          {advisory}
+        </div>
+      )}
+
       {visiblePollutants.length > 0 && (
         <section className="panel-section">
           <h3 className="section-title">Pollutants</h3>
@@ -47,11 +57,24 @@ export default function CityPanel({ city, onClose }) {
         </section>
       )}
 
-      {trend.length >= 2 && (
+      {trendablePollutants.length > 0 && (
         <section className="panel-section">
-          <h3 className="section-title">PM2.5 — 24h trend</h3>
+          <h3 className="section-title">Trend — 24h</h3>
+          {trendablePollutants.length > 1 && (
+            <div className="trend-tabs">
+              {trendablePollutants.map(p => (
+                <button
+                  key={p}
+                  className={`trend-tab${trendPollutant === p ? ' active' : ''}`}
+                  onClick={() => setTrendPollutant(p)}
+                >
+                  {POLLUTANT_LABELS[p]}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="sparkline-wrap">
-            <Sparkline values={trend} />
+            <Sparkline values={pollutants[trendPollutant]?.trend ?? []} />
           </div>
         </section>
       )}
@@ -62,7 +85,7 @@ export default function CityPanel({ city, onClose }) {
           <ul className="station-list">
             {stations.map((s, i) => (
               <li key={i} className="station-item">
-                <span className="station-name">{s.name}</span>
+                <span className="station-name" title={s.name}>{s.name}</span>
                 <span className="station-pm25">PM2.5 {s.pm25}</span>
               </li>
             ))}

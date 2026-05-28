@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { aqiColor } from '../utils/aqi'
 
-export default function CityList({ cities, selected, onSelect, onClose }) {
+export default function CityList({ cities, selected, onSelect }) {
   const [query, setQuery] = useState('')
 
   const filtered = cities
@@ -15,7 +15,6 @@ export default function CityList({ cities, selected, onSelect, onClose }) {
     <aside className="city-list">
       <div className="city-list-header">
         <span className="city-list-title">Cities</span>
-        <button className="panel-close" onClick={onClose} aria-label="Close">&#x2715;</button>
       </div>
 
       <div className="city-list-search">

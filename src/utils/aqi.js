@@ -23,6 +23,16 @@ export function relativeTime(iso) {
   return `${Math.floor(hrs / 24)}d ago`
 }
 
+export function aqiAdvisory(aqi) {
+  if (!aqi || aqi <= 0) return null
+  if (aqi <= 50)  return 'Air quality is satisfactory. Enjoy outdoor activities.'
+  if (aqi <= 100) return 'Acceptable air quality. Sensitive individuals should consider limiting prolonged outdoor exertion.'
+  if (aqi <= 150) return 'Sensitive groups (children, elderly, those with respiratory conditions) should limit prolonged outdoor exertion.'
+  if (aqi <= 200) return 'Everyone may begin to experience health effects. Limit prolonged outdoor exertion.'
+  if (aqi <= 300) return 'Health alert: everyone may experience serious effects. Avoid prolonged outdoor exertion.'
+  return 'Health emergency — everyone should avoid all outdoor exertion.'
+}
+
 export const POLLUTANT_LABELS = {
   pm25: 'PM2.5',
   pm10: 'PM10',

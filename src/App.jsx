@@ -10,32 +10,21 @@ const DATA_URL = `${import.meta.env.BASE_URL}data/aqi.json`
 export default function App() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [selected, setSelected] = useState(null)
-  const [showList, setShowList] = useState(false)
 
   useEffect(() => {
     fetch(DATA_URL)
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json() })
       .then(d => { setData(d); setLoading(false) })
-      .catch(() => setLoading(false))
+      .catch(() => { setError(true); setLoading(false) })
   }, [])
 
   const cities = data?.cities ?? []
 
-  function selectCity(city) {
-    setSelected(city)
-    setShowList(false)
-  }
-
   return (
     <div className="app">
       <header className="header">
-        <button
-          className={`btn-cities${showList ? ' active' : ''}`}
-          onClick={() => setShowList(v => !v)}
-        >
-          {showList ? 'Hide' : 'All cities'}
-        </button>
         <span className="header-logo">breathe</span>
         {data?.updated_at && (
           <span className="header-updated">Updated {relativeTime(data.updated_at)}</span>
@@ -44,22 +33,21 @@ export default function App() {
 
       {loading ? (
         <div className="loading">Loading&hellip;</div>
+      ) : error ? (
+        <div className="loading">Could not load air quality data. Check your connection and try again.</div>
       ) : (
-        <Map cities={cities} selected={selected} onSelect={selectCity} />
+        <Map cities={cities} selected={selected} onSelect={setSelected} />
       )}
 
       <Legend />
 
-      {showList && (
-        <CityList
-          cities={cities}
-          selected={selected}
-          onSelect={selectCity}
-          onClose={() => setShowList(false)}
-        />
-      )}
+      <CityList
+        cities={cities}
+        selected={selected}
+        onSelect={setSelected}
+      />
 
-      {selected && !showList && (
+      {selected && (
         <CityPanel city={selected} onClose={() => setSelected(null)} />
       )}
     </div>

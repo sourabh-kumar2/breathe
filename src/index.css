@@ -59,8 +59,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
   font-size: 1rem; color: #6b7280; background: #f9fafb;
 }
 
-/* Leaflet markers — show pointer cursor */
+/* Leaflet markers — show pointer cursor; fix SVG clipping on some browsers */
 .leaflet-interactive { cursor: pointer !important; }
+.leaflet-pane svg { overflow: visible; }
 
 /* ── Legend ───────────────────────────────────────────────────────── */
 .legend {
@@ -236,3 +237,43 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 
 .station-name { color: #374151; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%; }
 .station-pm25 { color: #6b7280; font-size: 0.8rem; flex-shrink: 0; }
+
+/* ── Advisory ─────────────────────────────────────────────────────── */
+.advisory {
+  margin: 0 20px;
+  padding: 10px 12px;
+  border-left: 3px solid #e5e7eb;
+  border-radius: 0 6px 6px 0;
+  background: #f9fafb;
+  font-size: 0.8rem;
+  color: #374151;
+  line-height: 1.45;
+}
+
+/* ── Trend tabs ───────────────────────────────────────────────────── */
+.trend-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.trend-tab {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  color: #6b7280;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.trend-tab:hover { border-color: #9ca3af; color: #374151; }
+
+.trend-tab.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
