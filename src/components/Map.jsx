@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from 'react-le
 import { aqiColor } from '../utils/aqi'
 
 const INDIA_CENTER = [22.5, 82.5]
-const INDIA_BOUNDS = [[6.0, 67.5], [37.5, 98.0]]
 
 const TILES = {
   light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
@@ -25,21 +24,14 @@ export default function Map({ cities, selected, onSelect, theme = 'light' }) {
     <MapContainer
       center={INDIA_CENTER}
       zoom={5}
-      minZoom={4}
-      maxZoom={12}
-      maxBounds={INDIA_BOUNDS}
-      maxBoundsViscosity={1.0}
-      worldCopyJump={false}
       className="map-container"
     >
-      {/* key on TileLayer only — swaps tiles without destroying the map */}
       <TileLayer
         key={theme}
         url={TILES[theme]}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>'
         subdomains="abcd"
         maxZoom={19}
-        noWrap
       />
       <FlyTo city={selected} />
       {cities.map(city => {
