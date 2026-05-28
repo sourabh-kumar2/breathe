@@ -1,0 +1,332 @@
+{
+  "updated_at": "2026-05-28T17:14:40Z",
+  "provider": "openaq",
+  "cities": [
+    {
+      "name": "Delhi",
+      "country": "IN",
+      "aqi": 224,
+      "category": "Very Unhealthy",
+      "pollutants": {
+        "pm25": {
+          "value": 174.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 223.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 49.8,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 49.5,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 1077.5,
+          "unit": "ppb",
+          "trend": []
+        },
+        "so2": {
+          "value": 22.2,
+          "unit": "ppb",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Delhi Technological University, Delhi - CPCB",
+          "lat": 28.744,
+          "lon": 77.12,
+          "pm25": 451.0
+        },
+        {
+          "name": "R K Puram, Delhi - DPCC",
+          "lat": 28.563262,
+          "lon": 77.186937,
+          "pm25": 113.0
+        },
+        {
+          "name": "Punjabi Bagh, Delhi - DPCC",
+          "lat": 28.674045,
+          "lon": 77.131023,
+          "pm25": 97.0
+        }
+      ]
+    },
+    {
+      "name": "Mumbai",
+      "country": "IN",
+      "aqi": 104,
+      "category": "Unhealthy for Sensitive Groups",
+      "pollutants": {
+        "pm25": {
+          "value": 36.5,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 84.0,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 41.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 21.7,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 575.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 23.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Kurla, Mumbai - MPCB",
+          "lat": 19.0863,
+          "lon": 72.8888,
+          "pm25": 53.0
+        },
+        {
+          "name": "Colaba, Mumbai - MPCB",
+          "lat": 18.91,
+          "lon": 72.82,
+          "pm25": 44.7
+        },
+        {
+          "name": "Mahape, Navi Mumbai - MPCB",
+          "lat": 19.1135051,
+          "lon": 73.008978,
+          "pm25": 30.1
+        },
+        {
+          "name": "Navi Mumbai Municipal Corporation Airoli",
+          "lat": 19.1494,
+          "lon": 72.9986,
+          "pm25": 20.4
+        },
+        {
+          "name": "Pimpleshwar Mandir, Thane - MPCB",
+          "lat": 19.192056,
+          "lon": 72.9585188,
+          "pm25": 16.4
+        }
+      ]
+    },
+    {
+      "name": "Bangalore",
+      "country": "IN",
+      "aqi": 121,
+      "category": "Unhealthy for Sensitive Groups",
+      "pollutants": {
+        "pm25": {
+          "value": 43.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 141.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 78.8,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 16.3,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 912.0,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 4.9,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "BTM Layout, Bengaluru - KSPCB",
+          "lat": 12.912811110000002,
+          "lon": 77.60921944,
+          "pm25": 45.6
+        },
+        {
+          "name": "Peenya, Bengaluru - KSPCB",
+          "lat": 13.0339,
+          "lon": 77.51321111,
+          "pm25": 43.8
+        },
+        {
+          "name": "BWSSB Kadabesanahalli, Bengaluru - KSPCB",
+          "lat": 12.93890556,
+          "lon": 77.69727222,
+          "pm25": 40.9
+        }
+      ]
+    },
+    {
+      "name": "Chennai",
+      "country": "IN",
+      "aqi": 136,
+      "category": "Unhealthy for Sensitive Groups",
+      "pollutants": {
+        "pm25": {
+          "value": 49.9,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 54.5,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 16.5,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 10.7,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 1686.7,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 13.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Alandur Bus Depot",
+          "lat": 12.99711389,
+          "lon": 80.19151667,
+          "pm25": 111.7
+        },
+        {
+          "name": "US Diplomatic Post: Chennai",
+          "lat": 13.052371,
+          "lon": 80.251932,
+          "pm25": 73.4
+        },
+        {
+          "name": "IIT",
+          "lat": 12.992513890000001,
+          "lon": 80.23744722,
+          "pm25": 70.0
+        },
+        {
+          "name": "Velachery Res. Area, Chennai - CPCB",
+          "lat": 13.0052189,
+          "lon": 80.2398125,
+          "pm25": 24.6
+        },
+        {
+          "name": "Manali, Chennai - CPCB",
+          "lat": 13.164544,
+          "lon": 80.26285,
+          "pm25": 22.5
+        }
+      ]
+    },
+    {
+      "name": "Kolkata",
+      "country": "IN",
+      "aqi": 165,
+      "category": "Unhealthy",
+      "pollutants": {
+        "pm25": {
+          "value": 82.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 124.7,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 22.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 114.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 4324.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 12.9,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "US Diplomatic Post: Kolkata",
+          "lat": 22.547142,
+          "lon": 88.351048,
+          "pm25": 279.1
+        },
+        {
+          "name": "Rabindra Bharati University, Kolkata - WBPCB",
+          "lat": 22.5824635,
+          "lon": 88.35724470000001,
+          "pm25": 112.0
+        },
+        {
+          "name": "Rabindra Bharati University, Kolkata - WBSPCB",
+          "lat": 22.627875,
+          "lon": 88.3804,
+          "pm25": 34.6
+        },
+        {
+          "name": "Padmapukur, Howrah - WBPCB",
+          "lat": 22.5687319,
+          "lon": 88.2797276,
+          "pm25": 33.8
+        },
+        {
+          "name": "Victoria Memorial - WBSPCB",
+          "lat": 22.572646,
+          "lon": 88.36389499999996,
+          "pm25": 0.0
+        }
+      ]
+    }
+  ]
+}
