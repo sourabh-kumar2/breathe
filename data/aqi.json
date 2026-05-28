@@ -1,11 +1,13 @@
 {
-  "updated_at": "2026-05-28T17:23:23Z",
+  "updated_at": "2026-05-28T18:47:50Z",
   "provider": "openaq",
   "cities": [
     {
       "name": "Delhi",
       "state": "Delhi",
       "country": "IN",
+      "lat": 28.7041,
+      "lon": 77.1025,
       "aqi": 467,
       "category": "Hazardous",
       "pollutants": {
@@ -33,16 +35,18 @@
       "name": "Mumbai",
       "state": "Maharashtra",
       "country": "IN",
-      "aqi": 92,
+      "lat": 19.076,
+      "lon": 72.8777,
+      "aqi": 90,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 31.6,
+          "value": 30.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 79.1,
+          "value": 77.1,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -72,7 +76,7 @@
           "name": "Colaba, Mumbai - MPCB",
           "lat": 18.91,
           "lon": 72.82,
-          "pm25": 44.7
+          "pm25": 43.2
         },
         {
           "name": "Navi Mumbai Municipal Corporation Airoli",
@@ -92,6 +96,8 @@
       "name": "Bangalore",
       "state": "Karnataka",
       "country": "IN",
+      "lat": 12.9716,
+      "lon": 77.5946,
       "aqi": 124,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
@@ -145,6 +151,8 @@
       "name": "Chennai",
       "state": "Tamil Nadu",
       "country": "IN",
+      "lat": 13.0827,
+      "lon": 80.2707,
       "aqi": 166,
       "category": "Unhealthy",
       "pollutants": {
@@ -199,6 +207,8 @@
       "name": "Kolkata",
       "state": "West Bengal",
       "country": "IN",
+      "lat": 22.5726,
+      "lon": 88.3639,
       "aqi": 176,
       "category": "Unhealthy",
       "pollutants": {
@@ -258,6 +268,8 @@
       "name": "Hyderabad",
       "state": "Telangana",
       "country": "IN",
+      "lat": 17.385,
+      "lon": 78.4867,
       "aqi": 153,
       "category": "Unhealthy",
       "pollutants": {
@@ -272,12 +284,12 @@
           "trend": []
         },
         "no2": {
-          "value": 11.6,
+          "value": 11.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "o3": {
-          "value": 22.5,
+          "value": 22.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -287,7 +299,7 @@
           "trend": []
         },
         "so2": {
-          "value": 3.3,
+          "value": 3.2,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         }
@@ -317,36 +329,38 @@
       "name": "Ahmedabad",
       "state": "Gujarat",
       "country": "IN",
-      "aqi": 115,
+      "lat": 23.0225,
+      "lon": 72.5714,
+      "aqi": 116,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
         "pm25": {
-          "value": 41.3,
+          "value": 41.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 73.0,
+          "value": 72.9,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 30.5,
+          "value": 30.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "o3": {
-          "value": 16.2,
+          "value": 19.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 221.9,
+          "value": 222.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "so2": {
-          "value": 37.0,
+          "value": 44.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         }
@@ -356,7 +370,7 @@
           "name": "Phase-4 GIDC, Vatva - GPCB",
           "lat": 22.969611,
           "lon": 72.6435,
-          "pm25": 56.8
+          "pm25": 57.9
         },
         {
           "name": "Sector-10, Gandhinagar - GPCB",
@@ -376,16 +390,18 @@
       "name": "Jaipur",
       "state": "Rajasthan",
       "country": "IN",
-      "aqi": 159,
+      "lat": 26.9124,
+      "lon": 75.7873,
+      "aqi": 158,
       "category": "Unhealthy",
       "pollutants": {
         "pm25": {
-          "value": 70.2,
+          "value": 68.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 141.4,
+          "value": 140.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -395,17 +411,17 @@
           "trend": []
         },
         "o3": {
-          "value": 42.6,
+          "value": 42.2,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 524.7,
+          "value": 525.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "so2": {
-          "value": 39.9,
+          "value": 34.1,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         }
@@ -421,7 +437,7 @@
           "name": "Shastri Nagar, Jaipur - RSPCB",
           "lat": 26.9502929,
           "lon": 75.730943,
-          "pm25": 79.7
+          "pm25": 75.5
         },
         {
           "name": "VK Industrial Area Jaipur - RSPCB",
@@ -435,36 +451,38 @@
       "name": "Lucknow",
       "state": "Uttar Pradesh",
       "country": "IN",
+      "lat": 26.8467,
+      "lon": 80.9462,
       "aqi": 195,
       "category": "Unhealthy",
       "pollutants": {
         "pm25": {
-          "value": 141.0,
+          "value": 139.9,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 189.6,
+          "value": 189.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 54.9,
+          "value": 54.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "o3": {
-          "value": 17.4,
+          "value": 16.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 855.4,
+          "value": 855.3,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "so2": {
-          "value": 17.9,
+          "value": 12.9,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         }
@@ -486,7 +504,7 @@
           "name": "Talkatora District Industries Center, Lucknow - CPCB",
           "lat": 26.83399722,
           "lon": 80.8917361,
-          "pm25": 74.5
+          "pm25": 72.1
         }
       ]
     },
@@ -494,13 +512,16 @@
       "name": "Patna",
       "state": "Bihar",
       "country": "IN",
-      "aqi": 160,
+      "lat": 25.5941,
+      "lon": 85.1376,
+      "aqi": 161,
       "category": "Unhealthy",
       "pollutants": {
         "pm25": {
-          "value": 72.9,
+          "value": 75.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            34.0,
             18.5,
             20.0,
             23.5,
@@ -521,23 +542,21 @@
             24.0,
             25.3,
             18.0,
-            24.7,
-            12.0,
-            2.0
+            26.0
           ]
         },
         "pm10": {
-          "value": 120.8,
+          "value": 116.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 32.1,
+          "value": 32.2,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 36.7,
+          "value": 36.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -547,7 +566,7 @@
           "trend": []
         },
         "so2": {
-          "value": 11.3,
+          "value": 11.4,
           "unit": "ppb",
           "trend": []
         }
@@ -557,13 +576,13 @@
           "name": "IGSC Planetarium Complex, Patna - BSPCB",
           "lat": 25.5941,
           "lon": 85.1376,
-          "pm25": 100.5
+          "pm25": 109.0
         },
         {
           "name": "DRM Office Danapur, Patna - BSPCB",
           "lat": 25.586562,
           "lon": 85.043586,
-          "pm25": 68.2
+          "pm25": 68.0
         },
         {
           "name": "Rajbansi Nagar, Patna - BSPCB",
@@ -577,13 +596,16 @@
       "name": "Bhopal",
       "state": "Madhya Pradesh",
       "country": "IN",
-      "aqi": 159,
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "aqi": 160,
       "category": "Unhealthy",
       "pollutants": {
         "pm25": {
-          "value": 71.5,
+          "value": 73.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            64.0,
             60.7,
             58.3,
             55.7,
@@ -603,22 +625,21 @@
             46.5,
             47.0,
             59.0,
-            62.0,
-            66.0
+            62.0
           ]
         },
         "pm10": {
-          "value": 191.2,
+          "value": 193.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 42.8,
+          "value": 44.4,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 28.8,
+          "value": 25.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -628,7 +649,7 @@
           "trend": []
         },
         "so2": {
-          "value": 23.8,
+          "value": 24.2,
           "unit": "ppb",
           "trend": []
         }
@@ -644,13 +665,13 @@
           "name": "Paryavaran Parisar, Bhopal - MPPCB",
           "lat": 23.210494,
           "lon": 77.425409,
-          "pm25": 70.0
+          "pm25": 74.0
         },
         {
           "name": "T T Nagar, Bhopal - MPPCB",
           "lat": 23.233584,
           "lon": 77.400574,
-          "pm25": 68.5
+          "pm25": 71.0
         }
       ]
     },
@@ -658,36 +679,38 @@
       "name": "Bhubaneswar",
       "state": "Odisha",
       "country": "IN",
-      "aqi": 70,
+      "lat": 20.2961,
+      "lon": 85.8245,
+      "aqi": 73,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 21.3,
+          "value": 22.3,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 57.7,
+          "value": 61.3,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 8.3,
+          "value": 8.9,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 48.5,
+          "value": 50.9,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 0.8,
+          "value": 0.9,
           "unit": "ppb",
           "trend": []
         },
         "so2": {
-          "value": 4.5,
+          "value": 4.9,
           "unit": "ppb",
           "trend": []
         }
@@ -700,16 +723,16 @@
           "pm25": 32.0
         },
         {
+          "name": "Patia, Bhubaneswar - OSPCB",
+          "lat": 20.34652,
+          "lon": 85.8163,
+          "pm25": 18.0
+        },
+        {
           "name": "CDA Area, Cuttack - OSPCB",
           "lat": 20.48891,
           "lon": 85.84768,
           "pm25": 17.0
-        },
-        {
-          "name": "Patia, Bhubaneswar - OSPCB",
-          "lat": 20.34652,
-          "lon": 85.8163,
-          "pm25": 15.0
         }
       ]
     },
@@ -717,13 +740,16 @@
       "name": "Chandigarh",
       "state": "Chandigarh",
       "country": "IN",
-      "aqi": 124,
+      "lat": 30.7333,
+      "lon": 76.7794,
+      "aqi": 129,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
         "pm25": {
-          "value": 45.0,
+          "value": 46.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            88.5,
             89.3,
             87.3,
             94.0,
@@ -744,23 +770,21 @@
             61.7,
             72.5,
             70.0,
-            87.7,
-            93.7,
-            94.2
+            93.5
           ]
         },
         "pm10": {
-          "value": 96.6,
+          "value": 98.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 28.1,
+          "value": 27.5,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 57.6,
+          "value": 48.2,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -770,12 +794,18 @@
           "trend": []
         },
         "so2": {
-          "value": 10.2,
+          "value": 9.0,
           "unit": "ppb",
           "trend": []
         }
       },
       "stations": [
+        {
+          "name": "Sector-25, Chandigarh - CPCC",
+          "lat": 30.751462,
+          "lon": 76.762879,
+          "pm25": 59.2
+        },
         {
           "name": "Sector-6, Panchkula - HSPCB ",
           "lat": 30.7057778,
@@ -783,16 +813,10 @@
           "pm25": 53.8
         },
         {
-          "name": "Sector-25, Chandigarh - CPCC",
-          "lat": 30.751462,
-          "lon": 76.762879,
-          "pm25": 52.1
-        },
-        {
           "name": "Sector 22, Chandigarh - CPCC",
           "lat": 30.735567,
           "lon": 76.77571400000001,
-          "pm25": 32.5
+          "pm25": 33.5
         }
       ]
     },
@@ -800,13 +824,16 @@
       "name": "Dehradun",
       "state": "Uttarakhand",
       "country": "IN",
-      "aqi": 81,
+      "lat": 30.3165,
+      "lon": 78.0322,
+      "aqi": 80,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 26.5,
+          "value": 26.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            52.1,
             51.3,
             46.4,
             43.1,
@@ -827,23 +854,21 @@
             40.0,
             39.9,
             35.4,
-            38.7,
-            43.0,
-            54.6
+            38.2
           ]
         },
         "pm10": {
-          "value": 51.9,
+          "value": 60.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 1.7,
+          "value": 2.4,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 36.5,
+          "value": 34.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -853,7 +878,7 @@
           "trend": []
         },
         "so2": {
-          "value": 0.6,
+          "value": 0.4,
           "unit": "ppb",
           "trend": []
         }
@@ -863,7 +888,7 @@
           "name": "Doon University, Dehradun - UKPCB",
           "lat": 30.269444,
           "lon": 78.044167,
-          "pm25": 26.5
+          "pm25": 26.0
         }
       ]
     },
@@ -871,16 +896,18 @@
       "name": "Guwahati",
       "state": "Assam",
       "country": "IN",
-      "aqi": 107,
+      "lat": 26.1445,
+      "lon": 91.7362,
+      "aqi": 109,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
         "pm25": {
-          "value": 38.0,
+          "value": 38.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 38.8,
+          "value": 39.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -890,7 +917,7 @@
           "trend": []
         },
         "o3": {
-          "value": 14.9,
+          "value": 15.1,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -916,7 +943,7 @@
           "name": "Railway Colony, Guwahati - APCB",
           "lat": 26.181742,
           "lon": 91.78063,
-          "pm25": 31.0
+          "pm25": 32.5
         },
         {
           "name": "Pan Bazaar, Guwahati - APCB",
@@ -930,13 +957,16 @@
       "name": "Raipur",
       "state": "Chhattisgarh",
       "country": "IN",
-      "aqi": 78,
+      "lat": 21.2514,
+      "lon": 81.6296,
+      "aqi": 92,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 25.1,
+          "value": 31.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            23.8,
             23.7,
             26.2,
             25.6,
@@ -957,33 +987,31 @@
             31.1,
             31.1,
             31.4,
-            31.8,
-            32.3,
-            33.7
+            31.8
           ]
         },
         "pm10": {
-          "value": 74.7,
+          "value": 116.9,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 13.9,
+          "value": 13.6,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 62.1,
+          "value": 62.4,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 0.5,
+          "value": 0.6,
           "unit": "ppb",
           "trend": []
         },
         "so2": {
-          "value": 11.0,
+          "value": 16.6,
           "unit": "ppb",
           "trend": []
         }
@@ -993,19 +1021,19 @@
           "name": "Siltara Phase-II, Raipur - CECB",
           "lat": 21.371751,
           "lon": 81.664929,
-          "pm25": 28.6
-        },
-        {
-          "name": "AIIMS, Raipur - CECB",
-          "lat": 21.258815,
-          "lon": 81.578979,
-          "pm25": 23.3
+          "pm25": 37.6
         },
         {
           "name": "Krishak Nagar, Raipur - CECB",
           "lat": 21.237755,
           "lon": 81.705301,
-          "pm25": 23.3
+          "pm25": 33.9
+        },
+        {
+          "name": "AIIMS, Raipur - CECB",
+          "lat": 21.258815,
+          "lon": 81.578979,
+          "pm25": 23.8
         }
       ]
     },
@@ -1013,6 +1041,8 @@
       "name": "Ranchi",
       "state": "Jharkhand",
       "country": "IN",
+      "lat": 23.3441,
+      "lon": 85.3096,
       "aqi": 0,
       "category": "Unknown",
       "pollutants": {},
@@ -1022,6 +1052,8 @@
       "name": "Shimla",
       "state": "Himachal Pradesh",
       "country": "IN",
+      "lat": 31.1048,
+      "lon": 77.1734,
       "aqi": 0,
       "category": "Unknown",
       "pollutants": {},
@@ -1031,13 +1063,16 @@
       "name": "Thiruvananthapuram",
       "state": "Kerala",
       "country": "IN",
+      "lat": 8.5241,
+      "lon": 76.9366,
       "aqi": 64,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 18.2,
+          "value": 18.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            8.0,
             7.67,
             8.0,
             8.67,
@@ -1058,13 +1093,11 @@
             6.5,
             9.0,
             11.0,
-            15.0,
-            14.5,
-            14.0
+            15.0
           ]
         },
         "pm10": {
-          "value": 26.2,
+          "value": 26.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1074,17 +1107,17 @@
           "trend": []
         },
         "o3": {
-          "value": 21.7,
+          "value": 21.1,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 210.1,
+          "value": 210.2,
           "unit": "ppb",
           "trend": []
         },
         "so2": {
-          "value": 5.6,
+          "value": 7.8,
           "unit": "ppb",
           "trend": []
         }
@@ -1094,7 +1127,7 @@
           "name": "Plammoodu, Thiruvananthapuram - Kerala PCB",
           "lat": 8.5149093,
           "lon": 76.9435879,
-          "pm25": 20.5
+          "pm25": 21.0
         },
         {
           "name": "Kariavattom, Thiruvananthapuram - Kerala PCB",
@@ -1108,13 +1141,16 @@
       "name": "Vijayawada",
       "state": "Andhra Pradesh",
       "country": "IN",
-      "aqi": 87,
+      "lat": 16.5062,
+      "lon": 80.648,
+      "aqi": 97,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 29.3,
+          "value": 34.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            45.0,
             33.0,
             28.5,
             21.7,
@@ -1135,23 +1171,21 @@
             19.5,
             26.0,
             31.0,
-            17.7,
-            18.5,
-            21.0
+            18.5
           ]
         },
         "pm10": {
-          "value": 59.0,
+          "value": 63.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 8.0,
+          "value": 8.2,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 31.3,
+          "value": 26.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1161,7 +1195,7 @@
           "trend": []
         },
         "so2": {
-          "value": 7.9,
+          "value": 7.5,
           "unit": "ppb",
           "trend": []
         }
@@ -1177,7 +1211,7 @@
           "name": "Secretariat, Amaravati - APPCB",
           "lat": 16.5150833,
           "lon": 80.5181667,
-          "pm25": 31.0
+          "pm25": 45.0
         },
         {
           "name": "PWD Grounds, Vijayawada - APPCB",
@@ -1191,6 +1225,8 @@
       "name": "Panaji",
       "state": "Goa",
       "country": "IN",
+      "lat": 15.4909,
+      "lon": 73.8278,
       "aqi": 0,
       "category": "Unknown",
       "pollutants": {},
@@ -1200,6 +1236,8 @@
       "name": "Imphal",
       "state": "Manipur",
       "country": "IN",
+      "lat": 24.817,
+      "lon": 93.9368,
       "aqi": 6,
       "category": "Good",
       "pollutants": {
@@ -1259,6 +1297,8 @@
       "name": "Shillong",
       "state": "Meghalaya",
       "country": "IN",
+      "lat": 25.5788,
+      "lon": 91.8933,
       "aqi": 44,
       "category": "Good",
       "pollutants": {
@@ -1266,7 +1306,6 @@
           "value": 10.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
-            0.0,
             0.0,
             0.0,
             0.0,
@@ -1302,7 +1341,7 @@
           "trend": []
         },
         "o3": {
-          "value": 7.3,
+          "value": 6.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1336,6 +1375,8 @@
       "name": "Aizawl",
       "state": "Mizoram",
       "country": "IN",
+      "lat": 23.7307,
+      "lon": 92.7173,
       "aqi": 11,
       "category": "Good",
       "pollutants": {
@@ -1352,8 +1393,6 @@
             4.0,
             3.22,
             0.643,
-            0.0,
-            0.0,
             0.0,
             0.0,
             0.0
@@ -1398,13 +1437,16 @@
       "name": "Kohima",
       "state": "Nagaland",
       "country": "IN",
-      "aqi": 58,
+      "lat": 25.6701,
+      "lon": 94.1077,
+      "aqi": 69,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 15.7,
+          "value": 20.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            28.3,
             18.3,
             18.8,
             19.6,
@@ -1421,13 +1463,11 @@
             3.4,
             7.32,
             0.0,
-            16.6,
-            19.5,
-            21.7
+            16.6
           ]
         },
         "pm10": {
-          "value": 36.1,
+          "value": 43.2,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1447,7 +1487,7 @@
           "trend": []
         },
         "so2": {
-          "value": 121.5,
+          "value": 122.2,
           "unit": "ppb",
           "trend": []
         }
@@ -1457,7 +1497,7 @@
           "name": "PWD Juction, Kohima - NPCB",
           "lat": 25.6635413,
           "lon": 94.0989878,
-          "pm25": 15.7
+          "pm25": 20.6
         }
       ]
     },
@@ -1465,6 +1505,8 @@
       "name": "Agartala",
       "state": "Tripura",
       "country": "IN",
+      "lat": 23.8315,
+      "lon": 91.2868,
       "aqi": 148,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
@@ -1518,31 +1560,33 @@
       "name": "Gangtok",
       "state": "Sikkim",
       "country": "IN",
-      "aqi": 31,
+      "lat": 27.3314,
+      "lon": 88.6138,
+      "aqi": 39,
       "category": "Good",
       "pollutants": {
         "pm25": {
-          "value": 7.5,
+          "value": 9.2,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "pm10": {
-          "value": 7.9,
+          "value": 12.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 4.2,
+          "value": 4.6,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "o3": {
-          "value": 18.9,
+          "value": 18.5,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 105.1,
+          "value": 105.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1557,7 +1601,7 @@
           "name": "Zero Point GICI, Gangtok - SSPCB",
           "lat": 27.33853,
           "lon": 88.614099,
-          "pm25": 10.4
+          "pm25": 14.0
         },
         {
           "name": "Zero Point GICI, Gangtok - SSPCB",
@@ -1571,13 +1615,16 @@
       "name": "Itanagar",
       "state": "Arunachal Pradesh",
       "country": "IN",
+      "lat": 27.0844,
+      "lon": 93.6053,
       "aqi": 59,
       "category": "Moderate",
       "pollutants": {
         "pm25": {
-          "value": 15.7,
+          "value": 16.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            25.5,
             22.6,
             20.0,
             18.2,
@@ -1598,13 +1645,11 @@
             19.4,
             31.2,
             34.0,
-            41.5,
-            57.5,
-            66.0
+            39.7
           ]
         },
         "pm10": {
-          "value": 28.2,
+          "value": 28.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1614,17 +1659,17 @@
           "trend": []
         },
         "o3": {
-          "value": 9.7,
+          "value": 9.8,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "co": {
-          "value": 110.1,
+          "value": 110.3,
           "unit": "ppb",
           "trend": []
         },
         "so2": {
-          "value": 13.0,
+          "value": 13.1,
           "unit": "ppb",
           "trend": []
         }
@@ -1634,7 +1679,7 @@
           "name": "Naharlagun, Naharlagun - APSPCB",
           "lat": 27.103358,
           "lon": 93.679645,
-          "pm25": 15.7
+          "pm25": 16.0
         }
       ]
     },
@@ -1642,11 +1687,13 @@
       "name": "Srinagar",
       "state": "Jammu & Kashmir",
       "country": "IN",
-      "aqi": 147,
+      "lat": 34.0837,
+      "lon": 74.7973,
+      "aqi": 145,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
         "pm25": {
-          "value": 54.3,
+          "value": 53.3,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
             17.8,
@@ -1669,9 +1716,7 @@
             14.9,
             16.1,
             17.7,
-            18.3,
-            16.9,
-            16.2
+            18.3
           ]
         },
         "pm10": {
@@ -1717,7 +1762,7 @@
           "name": "Bemina, Srinagar",
           "lat": 34.07023554237501,
           "lon": 74.77548492160591,
-          "pm25": 6.2
+          "pm25": 2.3
         }
       ]
     },
@@ -1725,6 +1770,8 @@
       "name": "Leh",
       "state": "Ladakh",
       "country": "IN",
+      "lat": 34.1526,
+      "lon": 77.5771,
       "aqi": 0,
       "category": "Unknown",
       "pollutants": {},
@@ -1734,6 +1781,8 @@
       "name": "Port Blair",
       "state": "Andaman & Nicobar Islands",
       "country": "IN",
+      "lat": 11.6234,
+      "lon": 92.7265,
       "aqi": 81,
       "category": "Moderate",
       "pollutants": {
@@ -1781,13 +1830,16 @@
       "name": "Puducherry",
       "state": "Puducherry",
       "country": "IN",
+      "lat": 11.9416,
+      "lon": 79.8083,
       "aqi": 105,
       "category": "Unhealthy for Sensitive Groups",
       "pollutants": {
         "pm25": {
-          "value": 37.2,
+          "value": 37.0,
           "unit": "\u00b5g/m\u00b3",
           "trend": [
+            12.0,
             12.0,
             11.0,
             13.0,
@@ -1803,23 +1855,21 @@
             8.0,
             7.5,
             8.0,
-            12.0,
-            10.0,
-            6.0
+            11.0
           ]
         },
         "pm10": {
-          "value": 29.3,
+          "value": 30.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
         "no2": {
-          "value": 2.8,
+          "value": 2.7,
           "unit": "ppb",
           "trend": []
         },
         "o3": {
-          "value": 12.0,
+          "value": 11.7,
           "unit": "\u00b5g/m\u00b3",
           "trend": []
         },
@@ -1829,7 +1879,7 @@
           "trend": []
         },
         "so2": {
-          "value": 5.5,
+          "value": 6.3,
           "unit": "ppb",
           "trend": []
         }
@@ -1851,7 +1901,7 @@
           "name": "Jawahar Nagar, Puducherry - PPCC",
           "lat": 11.9309,
           "lon": 79.8027,
-          "pm25": 7.0
+          "pm25": 6.5
         }
       ]
     }
