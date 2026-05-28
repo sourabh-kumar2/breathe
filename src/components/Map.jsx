@@ -20,18 +20,9 @@ function FlyTo({ city }) {
   return null
 }
 
-function TileLayerSwitcher({ theme }) {
-  const map = useMap()
-  useEffect(() => {
-    // nothing — MapContainer key prop handles remount on theme change
-  }, [theme, map])
-  return null
-}
-
 export default function Map({ cities, selected, onSelect, theme = 'light' }) {
   return (
     <MapContainer
-      key={theme}
       center={INDIA_CENTER}
       zoom={5}
       minZoom={4}
@@ -39,10 +30,11 @@ export default function Map({ cities, selected, onSelect, theme = 'light' }) {
       maxBounds={INDIA_BOUNDS}
       maxBoundsViscosity={1.0}
       worldCopyJump={false}
-      noWrap
       className="map-container"
     >
+      {/* key on TileLayer only — swaps tiles without destroying the map */}
       <TileLayer
+        key={theme}
         url={TILES[theme]}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>'
         subdomains="abcd"
