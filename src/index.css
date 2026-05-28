@@ -1,28 +1,10 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-#root {
-  height: 100%;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+#root { height: 100%; }
 
 /* ── App ──────────────────────────────────────────────────────────── */
-.app {
-  position: relative;
-  height: 100dvh;
-  overflow: hidden;
-}
+.app { position: relative; height: 100dvh; overflow: hidden; }
 
 /* ── Header ───────────────────────────────────────────────────────── */
 .header {
@@ -33,52 +15,156 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.95);
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   border-radius: 999px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
-  pointer-events: none;
 }
 
 .header-logo {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.3px;
   color: #111827;
 }
 
-.header-updated {
+.header-updated { font-size: 0.72rem; color: #6b7280; }
+
+.btn-cities {
   font-size: 0.75rem;
-  color: #6b7280;
+  font-weight: 600;
+  padding: 4px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.btn-cities:hover, .btn-cities.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
 }
 
 /* ── Map ──────────────────────────────────────────────────────────── */
-.map-container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+.map-container { position: absolute; inset: 0; z-index: 0; }
 
 .loading {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: #6b7280; background: #f9fafb;
+}
+
+/* Leaflet markers — show pointer cursor */
+.leaflet-interactive { cursor: pointer !important; }
+
+/* ── Legend ───────────────────────────────────────────────────────── */
+.legend {
   position: absolute;
-  inset: 0;
+  bottom: 28px;
+  left: 12px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.legend-row { display: flex; align-items: center; gap: 7px; }
+
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-label { font-size: 0.72rem; color: #374151; flex: 1; }
+.legend-range { font-size: 0.68rem; color: #9ca3af; }
+
+/* ── City list ────────────────────────────────────────────────────── */
+.city-list {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: min(300px, 100vw);
+  z-index: 900;
+  background: #fff;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.city-list-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #6b7280;
+  justify-content: space-between;
+  padding: 20px 20px 12px;
+  flex-shrink: 0;
+}
+
+.city-list-title { font-size: 1rem; font-weight: 700; color: #111827; }
+
+.city-list-search {
+  padding: 0 12px 10px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
   background: #f9fafb;
 }
+
+.search-input:focus { border-color: #6b7280; background: #fff; }
+
+.city-list-items { flex: 1; overflow-y: auto; list-style: none; padding: 0 8px 8px; }
+
+.city-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.city-list-item:hover { background: #f3f4f6; }
+.city-list-item.active { background: #f0fdf4; }
+
+.city-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+.city-list-info { flex: 1; overflow: hidden; }
+
+.city-list-name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.city-list-state { display: block; font-size: 0.72rem; color: #6b7280; }
+
+.city-list-aqi { font-size: 0.875rem; font-weight: 700; color: #374151; flex-shrink: 0; }
 
 /* ── City panel ───────────────────────────────────────────────────── */
 .city-panel {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; right: 0; bottom: 0;
   width: min(360px, 100vw);
   z-index: 900;
   background: #fff;
@@ -89,158 +175,64 @@ body {
 }
 
 .panel-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background: #f3f4f6;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #374151;
+  width: 30px; height: 30px;
+  border: none; background: #f3f4f6; border-radius: 50%;
+  cursor: pointer; font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  color: #374151; flex-shrink: 0;
 }
 
-.panel-close:hover {
-  background: #e5e7eb;
-}
+.panel-close:hover { background: #e5e7eb; }
 
 .panel-header {
-  padding: 20px 52px 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 16px 16px 20px;
 }
 
-.panel-city-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.2;
-}
+.panel-header-text { flex: 1; }
 
-.panel-state {
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-top: 3px;
-}
+.panel-city-name { font-size: 1.5rem; font-weight: 700; color: #111827; line-height: 1.2; }
+.panel-state { font-size: 0.85rem; color: #6b7280; margin-top: 3px; }
 
 /* ── AQI block ────────────────────────────────────────────────────── */
-.aqi-block {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 20px;
-}
-
-.aqi-number {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -2px;
-}
-
-.aqi-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  opacity: 0.9;
-}
-
-.aqi-nodata {
-  font-size: 0.95rem;
-  color: #fff;
-  font-weight: 500;
-}
+.aqi-block { display: flex; align-items: baseline; gap: 12px; padding: 20px; }
+.aqi-number { font-size: 3.5rem; font-weight: 800; line-height: 1; letter-spacing: -2px; }
+.aqi-label { font-size: 0.9rem; font-weight: 600; opacity: 0.9; }
+.aqi-nodata { font-size: 0.95rem; color: #fff; font-weight: 500; }
 
 /* ── Sections ─────────────────────────────────────────────────────── */
-.panel-section {
-  padding: 16px 20px;
-  border-top: 1px solid #f3f4f6;
-}
+.panel-section { padding: 16px 20px; border-top: 1px solid #f3f4f6; }
 
 .section-title {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #9ca3af;
-  margin-bottom: 12px;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #9ca3af; margin-bottom: 12px;
 }
 
 /* ── Pollutant grid ───────────────────────────────────────────────── */
-.pollutant-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
+.pollutant-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 
 .pollutant-card {
-  background: #f9fafb;
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  background: #f9fafb; border-radius: 8px; padding: 10px;
+  display: flex; flex-direction: column; gap: 2px;
 }
 
-.pollutant-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.pollutant-value {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.2;
-}
-
-.pollutant-unit {
-  font-size: 0.62rem;
-  color: #9ca3af;
-}
+.pollutant-label { font-size: 0.68rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+.pollutant-value { font-size: 1.1rem; font-weight: 700; color: #111827; line-height: 1.2; }
+.pollutant-unit { font-size: 0.62rem; color: #9ca3af; }
 
 /* ── Sparkline ────────────────────────────────────────────────────── */
-.sparkline-wrap {
-  background: #f9fafb;
-  border-radius: 8px;
-  padding: 8px;
-  overflow: hidden;
-}
+.sparkline-wrap { background: #f9fafb; border-radius: 8px; padding: 8px; overflow: hidden; }
 
-/* ── Station list ─────────────────────────────────────────────────── */
-.station-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+/* ── Stations ─────────────────────────────────────────────────────── */
+.station-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
 .station-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 10px;
-  background: #f9fafb;
-  border-radius: 6px;
-  font-size: 0.875rem;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; background: #f9fafb; border-radius: 6px; font-size: 0.875rem;
 }
 
-.station-name {
-  color: #374151;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 65%;
-}
-
-.station-pm25 {
-  color: #6b7280;
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
+.station-name { color: #374151; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%; }
+.station-pm25 { color: #6b7280; font-size: 0.8rem; flex-shrink: 0; }

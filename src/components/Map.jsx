@@ -1,7 +1,18 @@
-import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet'
+import { useEffect } from 'react'
+import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from 'react-leaflet'
 import { aqiColor } from '../utils/aqi'
 
 const INDIA = [20.5937, 78.9629]
+
+function FlyTo({ city }) {
+  const map = useMap()
+  useEffect(() => {
+    if (city?.lat && city?.lon) {
+      map.flyTo([city.lat, city.lon], 9, { duration: 1.2 })
+    }
+  }, [city, map])
+  return null
+}
 
 export default function Map({ cities, selected, onSelect }) {
   return (
@@ -12,6 +23,7 @@ export default function Map({ cities, selected, onSelect }) {
         subdomains="abcd"
         maxZoom={19}
       />
+      <FlyTo city={selected} />
       {cities.map(city => {
         if (!city.lat || !city.lon) return null
         const isSelected = selected?.name === city.name
@@ -23,7 +35,7 @@ export default function Map({ cities, selected, onSelect }) {
             fillColor={aqiColor(city.aqi)}
             fillOpacity={0.88}
             color={isSelected ? '#1f2937' : 'rgba(0,0,0,0.25)'}
-            weight={isSelected ? 2 : 1}
+            weight={isSelected ? 2.5 : 1}
             eventHandlers={{ click: () => onSelect(city) }}
           >
             <Tooltip direction="top" offset={[0, -6]}>

@@ -13,11 +13,12 @@ export default function CityPanel({ city, onClose }) {
 
   return (
     <aside className="city-panel">
-      <button className="panel-close" onClick={onClose} aria-label="Close">&#x2715;</button>
-
       <div className="panel-header">
-        <div className="panel-city-name">{name}</div>
-        {state && <div className="panel-state">{state}</div>}
+        <div className="panel-header-text">
+          <div className="panel-city-name">{name}</div>
+          {state && <div className="panel-state">{state}</div>}
+        </div>
+        <button className="panel-close" onClick={onClose} aria-label="Close">&#x2715;</button>
       </div>
 
       <div className="aqi-block" style={{ background: bgColor }}>

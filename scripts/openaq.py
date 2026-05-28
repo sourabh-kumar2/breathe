@@ -224,9 +224,14 @@ def fetch_city(city: str) -> dict:
         print(f"  → hourly trend (sensor {sid})", file=sys.stderr)
         hourly = get(f"{BASE}/sensors/{sid}/measurements/hourly"
                      f"?datetime_from={since}&limit=24")
+        results = hourly.get("results", [])
+        if results:
+            print(f"    hourly sample keys: {list(results[0].keys())}", file=sys.stderr)
+        else:
+            print(f"    hourly returned 0 results (meta={hourly.get('meta')})", file=sys.stderr)
         # API returns newest-first; reverse so trend is oldest → newest
         pm25_trend = [
-            r["value"] for r in reversed(hourly.get("results", []))
+            r["value"] for r in reversed(results)
             if r.get("value") is not None
         ]
 
