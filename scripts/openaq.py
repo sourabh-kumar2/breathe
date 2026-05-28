@@ -10,6 +10,7 @@ v3 API flow per city:
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -129,20 +130,34 @@ def aqi_category(aqi: int) -> str:
     if aqi <= 300: return "Very Unhealthy"
     return "Hazardous"
 
-def get(url: str) -> dict:
+_THROTTLE = 0.3  # seconds between every request
+
+def get(url: str, _retries: int = 3) -> dict:
     req = urllib.request.Request(
         url,
         headers={"X-API-Key": API_KEY, "Accept": "application/json"},
     )
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read())
-    except urllib.error.HTTPError as e:
-        print(f"    HTTP {e.code} — {url}", file=sys.stderr)
-        return {"results": []}
-    except Exception as e:
-        print(f"    error — {e}", file=sys.stderr)
-        return {"results": []}
+    for attempt in range(_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read())
+            time.sleep(_THROTTLE)
+            return data
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                wait = int(e.headers.get("Retry-After", 60) or 60)
+                print(f"    429 rate-limited — sleeping {wait}s", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            print(f"    HTTP {e.code} — {url}", file=sys.stderr)
+            time.sleep(_THROTTLE)
+            return {"results": []}
+        except Exception as e:
+            print(f"    error — {e}", file=sys.stderr)
+            time.sleep(_THROTTLE)
+            return {"results": []}
+    print(f"    gave up after {_retries} retries — {url}", file=sys.stderr)
+    return {"results": []}
 
 def fetch_city(city: str) -> dict:
     if city not in CITY_COORDS:
@@ -179,7 +194,7 @@ def fetch_city(city: str) -> dict:
 
     # ── 2. Latest reading per sensor, for the top 5 stations ─────────────────
     readings: list[dict] = []
-    for loc in locations[:5]:
+    for loc in locations[:3]:
         print(f"  → latest @ location {loc['id']}", file=sys.stderr)
         latest = get(f"{BASE}/locations/{loc['id']}/latest")
         for item in latest.get("results", []):
