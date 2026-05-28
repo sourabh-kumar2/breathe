@@ -1,0 +1,246 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
+
+/* ── App ──────────────────────────────────────────────────────────── */
+.app {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+.header {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.header-logo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #111827;
+}
+
+.header-updated {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* ── Map ──────────────────────────────────────────────────────────── */
+.map-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+/* ── City panel ───────────────────────────────────────────────────── */
+.city-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(360px, 100vw);
+  z-index: 900;
+  background: #fff;
+  box-shadow: -4px 0 32px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+}
+
+.panel-close:hover {
+  background: #e5e7eb;
+}
+
+.panel-header {
+  padding: 20px 52px 16px 20px;
+}
+
+.panel-city-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.panel-state {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 3px;
+}
+
+/* ── AQI block ────────────────────────────────────────────────────── */
+.aqi-block {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 20px;
+}
+
+.aqi-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.aqi-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.aqi-nodata {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ── Sections ─────────────────────────────────────────────────────── */
+.panel-section {
+  padding: 16px 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+/* ── Pollutant grid ───────────────────────────────────────────────── */
+.pollutant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.pollutant-card {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pollutant-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pollutant-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.pollutant-unit {
+  font-size: 0.62rem;
+  color: #9ca3af;
+}
+
+/* ── Sparkline ────────────────────────────────────────────────────── */
+.sparkline-wrap {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* ── Station list ─────────────────────────────────────────────────── */
+.station-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.station-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #f9fafb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.station-name {
+  color: #374151;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 65%;
+}
+
+.station-pm25 {
+  color: #6b7280;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}

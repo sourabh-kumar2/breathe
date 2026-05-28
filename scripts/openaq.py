@@ -163,6 +163,7 @@ def fetch_city(city: str) -> dict:
     if city not in CITY_COORDS:
         print(f"  no coordinates for {city!r}, skipping", file=sys.stderr)
         return {"name": city, "state": CITY_STATE.get(city, ""), "country": "IN",
+                "lat": 0.0, "lon": 0.0,
                 "aqi": 0, "category": "Unknown", "pollutants": {}, "stations": []}
 
     lat, lon = CITY_COORDS[city]
@@ -176,6 +177,7 @@ def fetch_city(city: str) -> dict:
     if not locations:
         print("  no stations found", file=sys.stderr)
         return {"name": city, "state": CITY_STATE.get(city, ""), "country": "IN",
+                "lat": lat, "lon": lon,
                 "aqi": 0, "category": "Unknown", "pollutants": {}, "stations": []}
 
     # sensor_id → metadata; normalise param name ("PM2.5" → "pm25")
@@ -263,6 +265,8 @@ def fetch_city(city: str) -> dict:
         "name":       city,
         "state":      CITY_STATE.get(city, ""),
         "country":    "IN",
+        "lat":        lat,
+        "lon":        lon,
         "aqi":        aqi,
         "category":   aqi_category(aqi),
         "pollutants": pollutants,
