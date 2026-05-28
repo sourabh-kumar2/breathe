@@ -16,18 +16,92 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 API_KEY   = os.environ.get("OPENAQ_API_KEY", "")
-CITIES    = [c.strip() for c in os.environ.get("CITIES", "Delhi,Mumbai,Bangalore,Chennai,Kolkata").split(",") if c.strip()]
+_DEFAULT_CITIES = (
+    "Delhi,Mumbai,Bangalore,Chennai,Kolkata,"
+    "Hyderabad,Ahmedabad,Jaipur,Lucknow,Patna,"
+    "Bhopal,Bhubaneswar,Chandigarh,Dehradun,Guwahati,"
+    "Raipur,Ranchi,Shimla,Thiruvananthapuram,Vijayawada,"
+    "Panaji,Imphal,Shillong,Aizawl,Kohima,"
+    "Agartala,Gangtok,Srinagar,Leh,Port Blair,Puducherry"
+)
+CITIES    = [c.strip() for c in os.environ.get("CITIES", _DEFAULT_CITIES).split(",") if c.strip()]
 DATA_OUT  = os.environ.get("DATA_OUT", "data/aqi.json")
 BASE      = "https://api.openaq.org/v3"
 RADIUS    = 25000  # metres — API max
 
 # OpenAQ v3 has no city-name filter; use hardcoded city centres
+# Covers all 28 Indian states + major Union Territories
 CITY_COORDS: dict[str, tuple[float, float]] = {
-    "Delhi":     (28.7041, 77.1025),
-    "Mumbai":    (19.0760, 72.8777),
-    "Bangalore": (12.9716, 77.5946),
-    "Chennai":   (13.0827, 80.2707),
-    "Kolkata":   (22.5726, 88.3639),
+    # Major metros
+    "Delhi":               (28.7041, 77.1025),
+    "Mumbai":              (19.0760, 72.8777),
+    "Bangalore":           (12.9716, 77.5946),
+    "Chennai":             (13.0827, 80.2707),
+    "Kolkata":             (22.5726, 88.3639),
+    "Hyderabad":           (17.3850, 78.4867),
+    "Ahmedabad":           (23.0225, 72.5714),
+    # State capitals
+    "Agartala":            (23.8315, 91.2868),   # Tripura
+    "Aizawl":              (23.7307, 92.7173),   # Mizoram
+    "Bhopal":              (23.2599, 77.4126),   # Madhya Pradesh
+    "Bhubaneswar":         (20.2961, 85.8245),   # Odisha
+    "Chandigarh":          (30.7333, 76.7794),   # Haryana / Punjab
+    "Dehradun":            (30.3165, 78.0322),   # Uttarakhand
+    "Gangtok":             (27.3314, 88.6138),   # Sikkim
+    "Guwahati":            (26.1445, 91.7362),   # Assam (legislative capital: Dispur)
+    "Imphal":              (24.8170, 93.9368),   # Manipur
+    "Itanagar":            (27.0844, 93.6053),   # Arunachal Pradesh
+    "Jaipur":              (26.9124, 75.7873),   # Rajasthan
+    "Kohima":              (25.6701, 94.1077),   # Nagaland
+    "Lucknow":             (26.8467, 80.9462),   # Uttar Pradesh
+    "Panaji":              (15.4909, 73.8278),   # Goa
+    "Patna":               (25.5941, 85.1376),   # Bihar
+    "Raipur":              (21.2514, 81.6296),   # Chhattisgarh
+    "Ranchi":              (23.3441, 85.3096),   # Jharkhand
+    "Shillong":            (25.5788, 91.8933),   # Meghalaya
+    "Shimla":              (31.1048, 77.1734),   # Himachal Pradesh
+    "Srinagar":            (34.0837, 74.7973),   # Jammu & Kashmir
+    "Thiruvananthapuram":  (8.5241,  76.9366),   # Kerala
+    "Vijayawada":          (16.5062, 80.6480),   # Andhra Pradesh
+    # Union Territories
+    "Leh":                 (34.1526, 77.5771),   # Ladakh
+    "Port Blair":          (11.6234, 92.7265),   # Andaman & Nicobar
+    "Puducherry":          (11.9416, 79.8083),   # Puducherry
+}
+
+CITY_STATE: dict[str, str] = {
+    "Delhi":               "Delhi",
+    "Mumbai":              "Maharashtra",
+    "Bangalore":           "Karnataka",
+    "Chennai":             "Tamil Nadu",
+    "Kolkata":             "West Bengal",
+    "Hyderabad":           "Telangana",
+    "Ahmedabad":           "Gujarat",
+    "Agartala":            "Tripura",
+    "Aizawl":              "Mizoram",
+    "Bhopal":              "Madhya Pradesh",
+    "Bhubaneswar":         "Odisha",
+    "Chandigarh":          "Chandigarh",
+    "Dehradun":            "Uttarakhand",
+    "Gangtok":             "Sikkim",
+    "Guwahati":            "Assam",
+    "Imphal":              "Manipur",
+    "Itanagar":            "Arunachal Pradesh",
+    "Jaipur":              "Rajasthan",
+    "Kohima":              "Nagaland",
+    "Lucknow":             "Uttar Pradesh",
+    "Panaji":              "Goa",
+    "Patna":               "Bihar",
+    "Raipur":              "Chhattisgarh",
+    "Ranchi":              "Jharkhand",
+    "Shillong":            "Meghalaya",
+    "Shimla":              "Himachal Pradesh",
+    "Srinagar":            "Jammu & Kashmir",
+    "Thiruvananthapuram":  "Kerala",
+    "Vijayawada":          "Andhra Pradesh",
+    "Leh":                 "Ladakh",
+    "Port Blair":          "Andaman & Nicobar Islands",
+    "Puducherry":          "Puducherry",
 }
 
 # US EPA PM2.5 breakpoints: (pm_lo, pm_hi, aqi_lo, aqi_hi)
@@ -73,8 +147,8 @@ def get(url: str) -> dict:
 def fetch_city(city: str) -> dict:
     if city not in CITY_COORDS:
         print(f"  no coordinates for {city!r}, skipping", file=sys.stderr)
-        return {"name": city, "country": "IN", "aqi": 0,
-                "category": "Unknown", "pollutants": {}, "stations": []}
+        return {"name": city, "state": CITY_STATE.get(city, ""), "country": "IN",
+                "aqi": 0, "category": "Unknown", "pollutants": {}, "stations": []}
 
     lat, lon = CITY_COORDS[city]
     since = (datetime.now(timezone.utc) - timedelta(hours=25)).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -86,8 +160,8 @@ def fetch_city(city: str) -> dict:
 
     if not locations:
         print("  no stations found", file=sys.stderr)
-        return {"name": city, "country": "IN", "aqi": 0,
-                "category": "Unknown", "pollutants": {}, "stations": []}
+        return {"name": city, "state": CITY_STATE.get(city, ""), "country": "IN",
+                "aqi": 0, "category": "Unknown", "pollutants": {}, "stations": []}
 
     # sensor_id → metadata; normalise param name ("PM2.5" → "pm25")
     sensor_map: dict[int, dict] = {}
@@ -172,6 +246,7 @@ def fetch_city(city: str) -> dict:
 
     return {
         "name":       city,
+        "state":      CITY_STATE.get(city, ""),
         "country":    "IN",
         "aqi":        aqi,
         "category":   aqi_category(aqi),

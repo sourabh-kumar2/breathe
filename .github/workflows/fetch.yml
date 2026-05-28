@@ -16,7 +16,7 @@ jobs:
         env:
           API_PROVIDER: ${{ vars.API_PROVIDER || 'openaq' }}
           OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
-          CITIES: "Delhi,Mumbai,Bangalore,Chennai,Kolkata"
+          CITIES: "Delhi,Mumbai,Bangalore,Chennai,Kolkata,Hyderabad,Ahmedabad,Jaipur,Lucknow,Patna,Bhopal,Bhubaneswar,Chandigarh,Dehradun,Guwahati,Raipur,Ranchi,Shimla,Thiruvananthapuram,Vijayawada,Panaji,Imphal,Shillong,Aizawl,Kohima,Agartala,Gangtok,Itanagar,Srinagar,Leh,Port Blair,Puducherry"
           DATA_OUT: data/aqi.json
         run: python3 scripts/${API_PROVIDER}.py
 
