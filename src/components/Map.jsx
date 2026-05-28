@@ -27,7 +27,6 @@ export default function Map({ cities, selected, onSelect, theme = 'light' }) {
       className="map-container"
     >
       <TileLayer
-        key={theme}
         url={TILES[theme]}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>'
         subdomains="abcd"
