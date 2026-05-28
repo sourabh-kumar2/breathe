@@ -1,0 +1,29 @@
+name: Fetch AQI data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch AQI data
+        env:
+          API_PROVIDER: ${{ vars.API_PROVIDER || 'openaq' }}
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+          CITIES: "Delhi,Mumbai,Bangalore,Chennai,Kolkata,Hyderabad,Ahmedabad,Jaipur,Lucknow,Patna,Bhopal,Bhubaneswar,Chandigarh,Dehradun,Guwahati,Raipur,Ranchi,Shimla,Thiruvananthapuram,Vijayawada,Panaji,Imphal,Shillong,Aizawl,Kohima,Agartala,Gangtok,Itanagar,Srinagar,Leh,Port Blair,Puducherry"
+          DATA_OUT: public/data/aqi.json
+        run: python3 scripts/${API_PROVIDER}.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/aqi.json
+          git diff --staged --quiet || git commit -m "chore: update aqi data [skip ci]"
+          git push
