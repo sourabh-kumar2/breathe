@@ -18,7 +18,7 @@ jobs:
           OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
           CITIES: "Delhi,Mumbai,Bangalore,Chennai,Kolkata"
           DATA_OUT: data/aqi.json
-        run: bash scripts/${API_PROVIDER}.sh
+        run: python3 scripts/${API_PROVIDER}.py
 
       - name: Commit updated data
         run: |
