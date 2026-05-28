@@ -40,7 +40,7 @@ For each of the 32 cities:
 
 1. `GET /v3/locations?coordinates={lat},{lon}&radius=25000` — find nearby monitoring stations
 2. `GET /v3/locations/{id}/latest` — current readings per sensor
-3. `GET /v3/sensors/{id}/measurements/hourly` — last 24h PM2.5 trend
+3. `GET /v3/sensors/{id}/hours` — last 24h PM2.5 trend (precomputed hourly aggregates; falls back to `/days` if empty)
 
 Rate-limit handling: 0.3 s throttle per request + exponential backoff on HTTP 429 (reads `Retry-After` header).
 

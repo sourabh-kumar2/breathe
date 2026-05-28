@@ -216,24 +216,28 @@ def fetch_city(city: str) -> dict:
                 "lon":       meta["lon"],
             })
 
-    # ── 3. PM2.5 hourly trend (single extra call) ─────────────────────────────
+    # ── 3. PM2.5 hourly trend (precomputed /hours endpoint) ──────────────────
     pm25_readings = [r for r in readings if r["param"] == "pm25"]
     pm25_trend: list[float] = []
     if pm25_readings:
         sid = pm25_readings[0]["sensor_id"]
+        now = datetime.now(timezone.utc)
+        dt_to   = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+        dt_from = (now - timedelta(hours=25)).strftime("%Y-%m-%dT%H:%M:%SZ")
         print(f"  → hourly trend (sensor {sid})", file=sys.stderr)
-        hourly = get(f"{BASE}/sensors/{sid}/measurements/hourly"
-                     f"?datetime_from={since}&limit=24")
+        hourly = get(f"{BASE}/sensors/{sid}/hours"
+                     f"?datetime_from={dt_from}&datetime_to={dt_to}&limit=24")
         results = hourly.get("results", [])
-        if results:
-            print(f"    hourly sample keys: {list(results[0].keys())}", file=sys.stderr)
-        else:
-            print(f"    hourly returned 0 results (meta={hourly.get('meta')})", file=sys.stderr)
+        if not results:
+            print(f"    /hours empty — trying /days fallback", file=sys.stderr)
+            daily = get(f"{BASE}/sensors/{sid}/days?limit=7")
+            results = daily.get("results", [])
         # API returns newest-first; reverse so trend is oldest → newest
         pm25_trend = [
             r["value"] for r in reversed(results)
             if r.get("value") is not None
         ]
+        print(f"    trend points: {len(pm25_trend)}", file=sys.stderr)
 
     # ── Aggregate ─────────────────────────────────────────────────────────────
     pollutants: dict[str, dict] = {}
