@@ -1,9 +1,10 @@
 {
-  "updated_at": "2026-05-28T17:14:40Z",
+  "updated_at": "2026-05-28T17:20:44Z",
   "provider": "openaq",
   "cities": [
     {
       "name": "Delhi",
+      "state": "Delhi",
       "country": "IN",
       "aqi": 224,
       "category": "Very Unhealthy",
@@ -62,6 +63,7 @@
     },
     {
       "name": "Mumbai",
+      "state": "Maharashtra",
       "country": "IN",
       "aqi": 104,
       "category": "Unhealthy for Sensitive Groups",
@@ -132,6 +134,7 @@
     },
     {
       "name": "Bangalore",
+      "state": "Karnataka",
       "country": "IN",
       "aqi": 121,
       "category": "Unhealthy for Sensitive Groups",
@@ -190,6 +193,7 @@
     },
     {
       "name": "Chennai",
+      "state": "Tamil Nadu",
       "country": "IN",
       "aqi": 136,
       "category": "Unhealthy for Sensitive Groups",
@@ -260,6 +264,7 @@
     },
     {
       "name": "Kolkata",
+      "state": "West Bengal",
       "country": "IN",
       "aqi": 165,
       "category": "Unhealthy",
@@ -327,6 +332,485 @@
           "pm25": 0.0
         }
       ]
+    },
+    {
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "country": "IN",
+      "aqi": 152,
+      "category": "Unhealthy",
+      "pollutants": {
+        "pm25": {
+          "value": 58.3,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 126.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 22.3,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 19.8,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 703.1,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 3.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "US Diplomatic Post: Hyderabad",
+          "lat": 17.443464,
+          "lon": 78.47489,
+          "pm25": 76.7
+        },
+        {
+          "name": "Bollaram Industrial Area, Hyderabad - TSPCB",
+          "lat": 17.540891,
+          "lon": 78.358528,
+          "pm25": 74.5
+        },
+        {
+          "name": "Zoo Park, Hyderabad - TSPCB",
+          "lat": 17.349694,
+          "lon": 78.451437,
+          "pm25": 53.5
+        },
+        {
+          "name": "Sanathnagar, Hyderabad - TSPCB",
+          "lat": 17.42329722,
+          "lon": 78.47469722,
+          "pm25": 53.0
+        },
+        {
+          "name": "Central University, Hyderabad - TSPCB",
+          "lat": 17.460103,
+          "lon": 78.334361,
+          "pm25": 40.5
+        }
+      ]
+    },
+    {
+      "name": "Ahmedabad",
+      "state": "Gujarat",
+      "country": "IN",
+      "aqi": 97,
+      "category": "Moderate",
+      "pollutants": {
+        "pm25": {
+          "value": 34.2,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 84.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 27.3,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 13.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 1182.3,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 27.8,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Phase-4 GIDC, Vatva - GPCB",
+          "lat": 22.969611,
+          "lon": 72.6435,
+          "pm25": 56.8
+        },
+        {
+          "name": "Sector-10, Gandhinagar - GPCB",
+          "lat": 23.221714,
+          "lon": 72.654328,
+          "pm25": 45.3
+        },
+        {
+          "name": "Gyaspur, Ahmedabad - IITM",
+          "lat": 22.977134,
+          "lon": 72.553024,
+          "pm25": 37.3
+        },
+        {
+          "name": "Maninagar, Ahmedabad - GPCB",
+          "lat": 23.002657,
+          "lon": 72.591912,
+          "pm25": 22.0
+        },
+        {
+          "name": "Rakhial, Ahmedabad - IITM",
+          "lat": 23.016834,
+          "lon": 72.625775,
+          "pm25": 9.6
+        }
+      ]
+    },
+    {
+      "name": "Jaipur",
+      "state": "Rajasthan",
+      "country": "IN",
+      "aqi": 160,
+      "category": "Unhealthy",
+      "pollutants": {
+        "pm25": {
+          "value": 73.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 146.8,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 59.7,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 38.1,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 573.1,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 28.0,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Adarsh Nagar, Jaipur - RSPCB",
+          "lat": 26.902909,
+          "lon": 75.836858,
+          "pm25": 101.3
+        },
+        {
+          "name": "Police Commissionerate, Jaipur - RSPCB",
+          "lat": 26.9164092,
+          "lon": 75.7994901,
+          "pm25": 83.9
+        },
+        {
+          "name": "Shastri Nagar, Jaipur - RSPCB",
+          "lat": 26.9502929,
+          "lon": 75.730943,
+          "pm25": 79.7
+        },
+        {
+          "name": "Mansarovar Sector-12, Jaipur - RSPCB",
+          "lat": 26.843698,
+          "lon": 75.766894,
+          "pm25": 35.0
+        },
+        {
+          "name": "VK Industrial Area Jaipur - RSPCB",
+          "lat": 26.9738778,
+          "lon": 75.7738777777777,
+          "pm25": 24.0
+        }
+      ]
+    },
+    {
+      "name": "Lucknow",
+      "state": "Uttar Pradesh",
+      "country": "IN",
+      "aqi": 195,
+      "category": "Unhealthy",
+      "pollutants": {
+        "pm25": {
+          "value": 141.0,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "pm10": {
+          "value": 189.6,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "no2": {
+          "value": 54.9,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "o3": {
+          "value": 17.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "co": {
+          "value": 855.4,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        },
+        "so2": {
+          "value": 17.9,
+          "unit": "\u00b5g/m\u00b3",
+          "trend": []
+        }
+      },
+      "stations": [
+        {
+          "name": "Lalbagh, DN Park",
+          "lat": 26.84578611,
+          "lon": 80.93874444,
+          "pm25": 224.6
+        },
+        {
+          "name": "Central School",
+          "lat": 26.85272778,
+          "lon": 80.99632778,
+          "pm25": 190.6
+        },
+        {
+          "name": "Talkatora District Industries Center, Lucknow - CPCB",
+          "lat": 26.83399722,
+          "lon": 80.8917361,
+          "pm25": 74.5
+        }
+      ]
+    },
+    {
+      "name": "Patna",
+      "state": "Bihar",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Bhopal",
+      "state": "Madhya Pradesh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Bhubaneswar",
+      "state": "Odisha",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Chandigarh",
+      "state": "Chandigarh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Dehradun",
+      "state": "Uttarakhand",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Guwahati",
+      "state": "Assam",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Raipur",
+      "state": "Chhattisgarh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Ranchi",
+      "state": "Jharkhand",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Shimla",
+      "state": "Himachal Pradesh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Thiruvananthapuram",
+      "state": "Kerala",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Panaji",
+      "state": "Goa",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Imphal",
+      "state": "Manipur",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Shillong",
+      "state": "Meghalaya",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Aizawl",
+      "state": "Mizoram",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Kohima",
+      "state": "Nagaland",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Agartala",
+      "state": "Tripura",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Gangtok",
+      "state": "Sikkim",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Itanagar",
+      "state": "Arunachal Pradesh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Srinagar",
+      "state": "Jammu & Kashmir",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Leh",
+      "state": "Ladakh",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Port Blair",
+      "state": "Andaman & Nicobar Islands",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
+    },
+    {
+      "name": "Puducherry",
+      "state": "Puducherry",
+      "country": "IN",
+      "aqi": 0,
+      "category": "Unknown",
+      "pollutants": {},
+      "stations": []
     }
   ]
 }
