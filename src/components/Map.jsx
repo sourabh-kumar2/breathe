@@ -6,7 +6,7 @@ const INDIA_CENTER = [22.5, 82.5]
 
 const TILES = {
   light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  dark:  'https://{s}.basemaps.cartocdn.com/dark_matter/{z}/{x}/{y}{r}.png',
+  dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
 }
 
 function FlyTo({ city }) {
@@ -27,6 +27,7 @@ export default function Map({ cities, selected, onSelect, theme = 'light' }) {
       className="map-container"
     >
       <TileLayer
+        key={theme}
         url={TILES[theme]}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>'
         subdomains="abcd"
